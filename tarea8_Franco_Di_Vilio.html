@@ -48,6 +48,38 @@ showMovieInfo(){
 
 }
 
+class Biblioteca {
+    constructor() {
+        this.movies = [];
+    }
+
+    agregarPelicula(pelicula) {
+        this.movies.push(pelicula);
+    }
+
+    reproducirPelicula(titulo) {
+        const pelicula = this.movies.find
+        (movie => movie.movieTitle === titulo);
+
+        if (pelicula) {
+            if (pelicula.availability) {
+                console.log("Reproduciendo: " + pelicula.showMovieInfo());
+        } else {
+            console.log("ERROR: " + titulo + " no fue encontrada y/o está temporalmente indisponible.");
+        }
+    }
+
+    listarPorGenero(genero) {
+        const peliculasPorGenero = this.movies.filter(movie => movie.genres.includes(genero));
+        if (peliculasPorGenero.length > 0) {
+            console.log("Películas del género '" + genero + "':");
+            peliculasPorGenero.forEach(movie => console.log(movie.showMovieInfo()));
+        } else {
+            console.log("No se encontraron películas del género '" + genero + "'.");
+        }
+    }
+}
+
 const movieOne = new Pelicula("The Ring (La Llamada)", 2002, ["Naomi Watts", "Daveigh Chase"], 115, ["Horror sobrenatural", "drama"], "mayores de 13 años");
 const movieTwo = new Pelicula("Superman", 2025, ["David Corenswet", "Rachel Brosnahan"], 120, ["Acción", "aventura", "ciencia ficción"], "mayores de 13 años");
 const movieThree = new Pelicula("Halloween", 1978, ["Jamie Lee Curtis", "Donald Pleasence"], 91, ["Horror slasher"], "mayores de 18 años");
