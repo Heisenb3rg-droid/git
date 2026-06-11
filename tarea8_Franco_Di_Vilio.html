@@ -38,7 +38,15 @@ class Pelicula {
         this.movieLength = movieLength;
         this.genres = genres;
         this.rating = rating;
-}};
+
+        this.availability = true;
+}
+
+showMovieInfo(){
+    return this.movieTitle + " (" + this.releaseYear + ")\n" + "Actores: " + this.actors.join(", ") + "\nDuración: " + this.movieLength + " minutos\nGéneros: " + this.genres.join(", ") + "\nClasificación de edad: " + this.rating;
+}
+
+}
 
 </script>
 
