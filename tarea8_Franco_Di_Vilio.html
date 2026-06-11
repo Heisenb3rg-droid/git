@@ -57,16 +57,23 @@ class Biblioteca {
         this.movies.push(pelicula);
     }
 
-    reproducirPelicula(titulo) {
-        const pelicula = this.movies.find
-        (movie => movie.movieTitle.search(titulo) !== -1);
+    reproducirPelicula(titulo) { 
+        const pelicula = this.movies.find( 
+            movie => movie.movieTitle.search(titulo) !== -1 ); 
+            if(pelicula) { 
+        if(pelicula.availability) { 
+        console.log("Reproduciendo: " + pelicula.showMovieInfo()); 
+    } else { console.log("XX ERROR: Película temporalmente indisponible."); 
 
-        if (pelicula) {
-            if (pelicula.availability) {
-                console.log("Reproduciendo: " + pelicula.showMovieInfo());
-             } else {
-            console.log("ERROR: " + titulo + " no fue encontrada y/o está temporalmente indisponible."); 
-        }
+    } } else { console.log("ERROR: Película no encontrada."); } }
+
+    listarPorGenero(genero) {
+        const peliculasPorGenero = this.movies.filter(movie => movie.genres.includes(genero));
+        if (peliculasPorGenero.length > 0) {
+            console.log("Películas del género '" + genero + "':");
+            peliculasPorGenero.forEach(movie => console.log(movie.showMovieInfo()));
+        } else {
+            console.log("No se encontraron películas del género '" + genero + "'.");
         }
     }
 
@@ -82,15 +89,15 @@ class Biblioteca {
         }
     }
 
-    listarPorGenero(genero) {
-        const peliculasPorGenero = this.movies.filter(movie => movie.genres.includes(genero));
-        if (peliculasPorGenero.length > 0) {
-            console.log("Películas del género '" + genero + "':");
-            peliculasPorGenero.forEach(movie => console.log(movie.showMovieInfo()));
-        } else {
-            console.log("No se encontraron películas del género '" + genero + "'.");
-        }
-    }
+    obtenerPeliculas() { 
+        return new Promise((resolve, reject) => { 
+            const suerte = Math.random(); 
+            if(suerte < 0.5) { 
+            resolve(this.movies); } 
+            else { 
+    reject("ERROR: No se pudo obtener la lista de películas."); 
+    } }); }
+
     }
 
 const movieOne = new Pelicula("The Ring (La Llamada)", 2002, ["Naomi Watts", "Daveigh Chase"], 115, ["Horror sobrenatural", "drama"], "mayores de 13 años");
