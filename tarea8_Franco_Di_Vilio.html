@@ -29,6 +29,8 @@ Y por último, agregarle dos funcionalidades más a la biblioteca de películas:
 Que pueda desactivar temporalmente una película y no reproducirla, dando ERROR siempre. Si pasa esto que muestre dos veces el mismo emoji en la consola o alerta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 En este caso que al agregar y crear películas, automáticamente se le asigne que está disponible siempre sin agregar ningún parámetro de más.*/
 
+//Consigna 1
+
 class Pelicula {
     constructor(movieTitle, releaseYear, actors, movieLength, genres, rating)
     {
@@ -70,6 +72,20 @@ class Biblioteca {
         }
     }
 
+    //Consigna 2
+
+    desactivarPelicula(titulo)
+    {
+        const pelicula = this.movies.find(
+            movie => movie.movieTitle === titulo
+        );
+
+        if(pelicula)
+        {
+            pelicula.availability = false;
+        }
+    }
+
     listarPorGenero(genero) {
         const peliculasPorGenero = this.movies.filter(movie => movie.genres.includes(genero));
         if (peliculasPorGenero.length > 0) {
@@ -94,11 +110,11 @@ biblioteca.agregarPelicula(movieThree);
 biblioteca.agregarPelicula(movieFour);
 biblioteca.agregarPelicula(movieFive);
 
-console.log(movieOne.showMovieInfo());
+/*console.log(movieOne.showMovieInfo());
 console.log(movieTwo.showMovieInfo());
 console.log(movieThree.showMovieInfo());
 console.log(movieFour.showMovieInfo());
-console.log(movieFive.showMovieInfo());
+console.log(movieFive.showMovieInfo());*/
 
 </script>
 
