@@ -119,6 +119,27 @@ console.log(movieThree.showMovieInfo());
 console.log(movieFour.showMovieInfo());
 console.log(movieFive.showMovieInfo());*/
 
+console.log(movieOne.showMovieInfo());
+
+biblioteca.reproducirPelicula("Spider-Man");
+
+biblioteca.listarPorGenero("Acción");
+
+biblioteca.desactivarPelicula("Halloween");
+
+biblioteca.reproducirPelicula("Halloween");
+
+biblioteca.obtenerPeliculas()
+.then(function(lista)
+{
+    console.log("Películas obtenidas:");
+    console.log(lista);
+})
+.catch(function(error)
+{
+    console.log(error);
+});
+
 </script>
 
 </html>
