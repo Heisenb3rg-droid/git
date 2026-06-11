@@ -43,10 +43,12 @@ class Pelicula {
 }
 
 showMovieInfo(){
-    return this.movieTitle + " (" + this.releaseYear + ")\n" + "Actores: " + this.actors.join(", ") + "\nDuración: " + this.movieLength + " minutos\nGéneros: " + this.genres.join(", ") + "\nClasificación de edad: " + this.rating;
+    return this.movieTitle + " (" + this.releaseYear + ")" + " - Actores: " + this.actors.join(", ") + " - Duración: " + this.movieLength + " minutos - Géneros: " + this.genres.join(", ") + " - Clasificación de edad: " + this.rating;
 }
 
 }
+
+const movieOne = new Pelicula("The Ring (La Llamada)", 2002, ["Naomi Watts", "Daveigh Chase"], 115, ["Horror sobrenatural", "drama"], "mayores de 13 años");
 
 </script>
 
